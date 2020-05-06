@@ -1,0 +1,6 @@
+{% extends "users/base.html" %}	
+{% block content %}	
+	<h1>Hello {{ user.username }}</h1>
+	<a href="{% url 'users-profile' %}">Profile</a>
+	<a href="{% url 'logout' %}">Log out</a>
+{% endblock content %}

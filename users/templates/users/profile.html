@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}	
+{% block content %}
+	<div>	
+		<h2>{{ user.profile.first_name }} {{ user.profile.last_name }}</h2>
+		<h3>{{ user.username}}</h3>
+	</div>
+	<div>
+		<img src="{{ user.profile.image.url }}">
+	</div>
+	<div>
+		<h3>Basic Info</h3>
+		<small>Email ID: {{ user.email }}</small><br>
+		<small>Date of Birth: {{ user.profile.dob|date:"d/m/Y" }}</small><br>
+		<small>Address:
+				{{ user.profile.address.city }},
+				{{ user.profile.address.state }},
+				{{ user.profile.address.country }}
+		</small>
+	</div>
+	<div>
+		<small>
+			<a href="{% url 'users-profile-update' %}">Update Profile</a><br>
+			<a href="{% url 'password_reset' %}">Reset Password</a><br>
+			<a href="{% url 'users-home' %}">Home</a>  
+		</small>
+	</div>
+{% endblock content %}
